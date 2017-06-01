@@ -1,6 +1,13 @@
-Spotify to Slack!
+Spotify to Slack Status!
 =================
 
-Yes! Post your current spotify track to slack.
+Update your Slack Profile Status with your currently playing spotify track.
 
-![image](http://i.imgur.com/HI8K6Wd.png)
+![image](http://i.imgur.com/4FRtgCA.png)
+
+
+## Usage
+
+```bash
+SLACK_TOKEN=your-slack-token osascript spotifyslack.scpt
+```
