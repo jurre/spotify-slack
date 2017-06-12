@@ -19,7 +19,13 @@ tell application "Spotify"
       set message to do shell script "echo \"" & message & "\" | sed \"s/'//g\" | sed 's/&/and/g'"
 
       set payload to "{\"status_text\": \"" & message & "\", \"status_emoji\": \":headphones:\"}"
-      do shell script "curl -sS -d 'token=" & slack_token & "&profile=" & payload & "' https://slack.com/api/users.profile.set"
+
+      try
+        do shell script "curl -sS -d 'token=" & slack_token & "&profile=" & payload & "' https://slack.com/api/users.profile.set"
+      on error err
+        set current_track to null
+        log err
+      end
     end if
 
     delay 15
